@@ -1,0 +1,53 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="author" content="">
+</head>
+<body>
+  <script type="text/template" id="playerFormTemplate">
+    <p><label>First Name</label><input id="firstName" type="text" name="firstName" value="<%=firstName%>" /></p>
+    <p><label>Surname</label><input id="surname" type="text" name="surname" value="<%=surname%>" /></p>
+    <p><label>Address</label><input id="address" type="text" name="address" value="<%=address%>" /></p>
+    <button id="savePlayer">Save</button>
+  </script>
+
+  <script type="text/template" id="playerTableTemplate">
+    <table>
+      <thead>
+        <th>First Name</th>
+        <th>Surname</th>
+        <th>Surname</th>
+        <th></th>
+        <th></th>
+      </thead>
+      <tbody>
+      <%
+      _.each(players, function(player) {
+      %>
+        <tr>
+          <td><%=player.firstName%></td>
+          <td><%=player.surname%></td>
+          <td><%=player.address%></td>
+          <td><button class="editPlayer" data-playerid="<%=player._id%>">Edit</button></td>
+          <td><button class="deletePlayer" data-playerid="<%=player._id%>">Delete</button></td>
+        </tr>
+      <%
+      });
+      %>
+      </tbody>
+    </table>
+    <button id="addPlayer">Add</button>
+  </script>
+  <script src="../node_modules/jquery/dist/jquery.min.js" type="text/javascript"></script>
+  <script src="../node_modules/lodash/index.js" type="text/javascript"></script>
+  <script src="../node_modules/backbone/backbone-min.js" type="text/javascript"></script>
+  <script src="/scripts/player.model.js" type="text/javascript"></script>
+  <script src="/scripts/player.collection.js" type="text/javascript"></script>
+  <script src="/scripts/player.view.js" type="text/javascript"></script>
+  <script src="/scripts/player.tableView.js" type="text/javascript"></script>
+  <script src="/scripts/players.js" type="text/javascript"></script>
+</body>
+</html>
